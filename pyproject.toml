@@ -1,0 +1,15 @@
+[project]
+name = "freihand"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cython>=3.1.4",
+    "matplotlib>=3.10.6",
+    "numpy>=2.3.3",
+    "opencv-python>=4.11.0.86",
+    "scikit-image>=0.25.2",
+    "tqdm>=4.67.1",
+    "transforms3d>=0.4.2",
+]
