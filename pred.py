@@ -1,4 +1,3 @@
-import argparse
 import json
 import os
 
@@ -56,7 +55,7 @@ def dump(pred_out_path, xyz_pred_list, verts_pred_list):
 
 def pred_template(img, K, scale):
     """Predict joints and vertices from a given sample.
-    img: (224, 224, 30 RGB image.
+    img: (224, 224, 3) RGB image.
     K: (3, 3) camera intrinsic matrix.
     scale: () scalar metric length of the reference bone,
               which was calculated as np.linalg.norm(xyz[9] - xyz[10], 2),
@@ -69,14 +68,4 @@ def pred_template(img, K, scale):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Show some samples from the dataset.")
-    parser.add_argument(
-        "base_path", type=str, help="Path to where the FreiHAND dataset is located."
-    )
-    parser.add_argument(
-        "--out", type=str, default="pred.json", help="File to save the predictions."
-    )
-    args = parser.parse_args()
-
-    # call with a predictor function
-    main(args.base_path, args.out, pred_func=pred_template, set_name="evaluation")
+    main("data", "pred.json", pred_func=pred_template, set_name="evaluation")

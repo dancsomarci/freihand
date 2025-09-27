@@ -7,6 +7,8 @@ def show_sample(base_path, idx=1):
     k_list, xyz_list = utils.load_db_annotation(base_path, "training")
 
     img = utils.read_img(idx, base_path, "training", utils.sample_version.gs)
+    print(img.shape)
+    print(img)
 
     # project camera coords to image plane
     K, xyz = k_list[idx], xyz_list[idx]
